@@ -1,9 +1,9 @@
 .form__fieldset {
     display: flex;
     flex-direction: column;
-    height: 4rem;
-    margin-bottom: 50px;
-    // border: 0;
+
+    margin-bottom: 20px;
+
 
 }
 
@@ -17,4 +17,9 @@ input[type="date"]::before {
     content: attr(data-placeholder);
     width: 100%;
     color: grey;
+}
+
+input[type="date"]:focus::before,
+input[type="date"]:valid::before {
+    display: none
 }

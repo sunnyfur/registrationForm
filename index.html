@@ -24,14 +24,14 @@
                     <p>* - поля обязательные для заполнения </p>
                     <fieldset class="form__fieldset ">
                         <label for="idLogin" class="form-label">Логин*</label>
-                        <input type="text" id="idLogin" class="form-control isRequered bg-transparent "
-                            placeholder="Логин" required />
+                        <input type="text" id="idLogin" class="form-control isRequered bg-transparent  "
+                            placeholder="Логин" pattern="^[\da-zA-Zа-яА-Я]{3,}" minlength="3" maxlength="10" required />
                         <div class="form__error form-text text-danger"></div>
                     </fieldset>
                     <fieldset class="form__fieldset ">
                         <label for="idSurname" class="form-label">Фамилия Имя Отчество*</label>
                         <input type="text" id="idSurname" class="form-control isRequered bg-transparent"
-                            placeholder="Фамилия" required />
+                            placeholder="Фамилия" pattern="^[a-zA-Zа-яА-Я]{3,}" minlength="3" maxlength="10" required />
                         <div class="form__error form-text text-danger"></div>
                     </fieldset>
 
@@ -41,7 +41,7 @@
                         <label class="form-label">Дата рождения*</label>
 
                         <input class="form-control isRequered bg-transparent" type="date" id="idBirthDay"
-                            data-placeholder="01.01.1990" />
+                            data-placeholder="01.01.2004" required />
                         <div class="form__error form-text text-danger"></div>
 
                     </fieldset>

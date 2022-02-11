@@ -5,7 +5,10 @@ const getErrorDiv = (elem) => {
 };
 
 const addDivError = (elem, message) => {
-    getErrorDiv(elem).innerHTML = message;
+    getErrorDiv(elem).innerHTML += message + "<br>";
+};
+const clearDivError = (elem) => {
+    getErrorDiv(elem).innerHTML = "";
 };
 
 const validateAll = () => {
@@ -40,16 +43,19 @@ const validateAll = () => {
 
 const checkField = (field) => {
     let valid = true;
+
+    clearDivError(field);
+    !isCommonValid(field) ? valid = false : "";
     switch (field.id) {
-        // case "idEmail":
-        //     numerr += !isValidEmail(field);
-        //     break;
+        case "idEmail":
+            !isValidEmail(field) ? valid = false : "";
+            break;
         case "idEmailCheck":
             !isEqualFields(document.getElementById('idEmail'), document.getElementById('idEmailCheck'), "E-mail не совпадает") ? valid = false : "";
             break;
-            // case "idPassword":
-            //     numerr += !isValidPass(field);
-            //     break;
+        case "idPassword":
+            !isValidPass(field) ? valid = false : "";
+            break;
         case "idPasswordCheck":
             !isEqualFields(document.getElementById('idPassword'), document.getElementById('idPasswordCheck'), "Пароль не совпадает") ? valid = false : "";
             break;
@@ -64,17 +70,27 @@ const checkField = (field) => {
                 addDivError(field, "Нужно принять политику конфиденциальности");
             };
             break;
-        default:
-            addDivError(field, "");
+
+
+
+    };
+
+
+
+    if (valid) {
+        if (field.classList.contains("border-danger")) field.classList.remove("border-danger");
+        if (!field.classList.contains("border-success")) field.classList.add("border-success");
+        //очистить список
+        clearDivError(field);
+
+    } else {
+
+        if (field.classList.contains("border-success")) field.classList.remove("border-success");
+
+        if (!field.classList.contains("border-danger")) field.classList.add("border-danger");
+
 
     }
-    isCommonValid(field) ? valid = false : "";
-
-    // if (!field.value && field.classList.contains("isRequered")) {
-    //     numerr++;
-    //     addDivError(field, "Поле обязательно для заполнения");
-    // };
-
     return valid;
 };
 
