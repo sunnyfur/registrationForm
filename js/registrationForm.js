@@ -17,9 +17,8 @@ const validateAll = () => {
 
     const chekedValuesAll = document.getElementsByClassName("isRequered");
     for (let i = 0; i < chekedValuesAll.length; i++) {
-        checkField(chekedValuesAll[i]) ? valid = false : "";
-    }
-    checkField(document.getElementById('idPrivacy')) ? valid = false : "";
+        !checkField(chekedValuesAll[i]) ? valid = false : "";
+    }!checkField(document.getElementById('idPrivacy')) ? valid = false : "";
 
 
     if (!document.querySelector('input[name="nameGender"]:checked')) {
@@ -27,16 +26,18 @@ const validateAll = () => {
         valid = false;
     }
 
-    checkField(document.getElementById('idBirthDay')) ? valid = false : "";
-    checkField(document.getElementById('idEmail')) ? valid = false : "";
-    checkField(document.getElementById('idEmailCheck')) ? valid = false : "";
-    checkField(document.getElementById('idPassword')) ? valid = false : "";
-    checkField(document.getElementById('idPasswordCheck')) ? valid = false : "";
+    !checkField(document.getElementById('idBirthDay')) ? valid = false : "";
+    !checkField(document.getElementById('idEmail')) ? valid = false : "";
+    !checkField(document.getElementById('idEmailCheck')) ? valid = false : "";
+    !checkField(document.getElementById('idPassword')) ? valid = false : "";
+    !checkField(document.getElementById('idPasswordCheck')) ? valid = false : "";
 
     if (valid) {
         alert(`Добро пожаловать, ${document.getElementById('idLogin').value}`);
+        return true;
     } else {
         alert('Не все поля заполнены корректно!');
+        return false;
     }
 
 }
@@ -95,8 +96,8 @@ const checkField = (field) => {
 };
 
 
-const buttonSubmit = document.getElementById("idSubmitRegistration");
-buttonSubmit.addEventListener("click", validateAll);
+// const buttonSubmit = document.getElementById("idSubmitRegistration");
+// buttonSubmit.addEventListener("click", validateAll);
 
 
 const login = document.getElementById('formRegistration');

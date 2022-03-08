@@ -31,7 +31,9 @@
                     <fieldset class="form__fieldset ">
                         <label for="idSurname" class="form-label">Фамилия Имя Отчество*</label>
                         <input type="text" id="idSurname" class="form-control isRequered bg-transparent"
-                            placeholder="Фамилия" pattern="^[a-zA-Zа-яА-Я]{3,}" minlength="3" maxlength="10" required />
+                            placeholder="Фамилия Имя Отчество"
+                            pattern="^[А-ЯЁ][а-яё]+(-[А-ЯЁ][а-яё]+)? [А-ЯЁ][а-яё]+( [А-ЯЁ][а-яё]+)?$" minlength="3"
+                            maxlength="40" required />
                         <div class="form__error form-text text-danger"></div>
                     </fieldset>
 
@@ -112,8 +114,7 @@
 
     <script src="js/checkFunctions.js"></script>
     <script src="js/registrationForm.js"></script>
-
-
+    <script src="js/formSubmit.js"></script>
 </body>
 
 </html>
